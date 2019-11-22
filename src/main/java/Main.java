@@ -18,10 +18,6 @@ public class Main extends Application {
             primaryStage.setTitle("iSede"); // Setting the name of the window
             primaryStage.setScene(new Scene(root, 700, 500));
             primaryStage.show();
-
-
-
-
         }
         catch (IIOException e){
 
