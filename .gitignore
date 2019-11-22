@@ -31,7 +31,7 @@ out/
 ### VS Code ###
 .vscode/
 
-.bin
-.lock
-.class
-.DS_Store
+*.bin
+*.lock
+*.DS_Store
+*.class
