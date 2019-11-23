@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import util.Constants;
 import util.StageManager;
 
 public class Guide {
@@ -12,8 +13,6 @@ public class Guide {
         /**
          * Open Setup
         */
-        StageManager.changeScene("primary", "Setup");
-        //Save Setup to Stack
-        StageManager.CONTROLLER.push(this);
+        StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.SETUP_SCENE);
     }
 }

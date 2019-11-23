@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import util.Constants;
 import util.StageManager;
 
 public class MainScene {
@@ -8,8 +9,6 @@ public class MainScene {
         /**
          *  minimizeStage
          */
-        StageManager.minimizeStage("primary");
-        //Save Setup to Stack
-        StageManager.CONTROLLER.push(this);
+        StageManager.minimizeStage(Constants.PRIMARY_STAGE);
     }
 }

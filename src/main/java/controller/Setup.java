@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import util.Constants;
 import util.StageManager;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,9 +46,7 @@ public class Setup implements Initializable {
         /**
          * Open MainScene
          */
-        StageManager.changeScene("primary", "MainScene");
-        //Save Setup to Stack
-        StageManager.CONTROLLER.push(this);
+        StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
     }
 
 }

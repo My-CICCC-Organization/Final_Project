@@ -1,17 +1,13 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+
+import util.Constants;
 import util.StageManager;
 
-import javax.imageio.IIOException;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -33,16 +29,15 @@ public class notification implements Initializable {
     public void snooze() {
         //Stage stage = (Stage) snooze.getScene().getWindow();
         //stage.close();
-        StageManager.closeStage("notification");
+        StageManager.showLater(Constants.NOTIFICATION_STAGE,Constants.NOTIFICATION_SCENE, 5);
+        StageManager.closeStage(Constants.NOTIFICATION_STAGE);
     }
 
     public void goToInPut() {
         /**
          * Open Input
          */
-        StageManager.changeScene("primary","Input");
-        snooze();
-        //Save Setup to Stack
-        StageManager.CONTROLLER.push(this);
+        StageManager.changeScene(Constants.PRIMARY_STAGE,Constants.INPUT_SCENE);
+        StageManager.closeStage(Constants.NOTIFICATION_STAGE);
     }
 }
