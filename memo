@@ -1,3 +1,18 @@
-DOB: 19 / 02 / 1999
-WEIGHT: TextField[id=in_kg, styleClass=text-input text-field]
-SIZE: TextField[id=in_ml, styleClass=text-input text-field]
+DOB: 19 / 2 / 1999
+WEIGHT: 70
+SIZE: 500
+DOB: 19 / 2 / 1999
+WEIGHT: 70
+SIZE: 80
+DOB: 19 / 2 / 1999
+WEIGHT: 70
+SIZE: 80
+DOB: 1 / 1 / 1
+WEIGHT: 1
+SIZE: 1
+DOB: 1 / 1 / 1
+WEIGHT: 1
+SIZE: 1
+DOB: 2 / 2 / 2
+WEIGHT: 2
+SIZE: 7
