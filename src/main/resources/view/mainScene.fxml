@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScene">
+    <children>
+        <ImageView fitHeight="488.0" fitWidth="663.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Screenshot 2019-11-21 21.55.07.png" />
+            </image>
+        </ImageView>
+        <Text fill="#00bceb" layoutX="176.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="iSede">
+            <font>
+                <Font name="Apple Braille Outline 6 Dot" size="90.0" />
+            </font>
+        </Text>
+        <Text fill="#00bceb" layoutX="48.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+            <font>
+                <Font name="Apple Braille Outline 6 Dot" size="28.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="48.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="from the">
+            <font>
+                <Font name="DIN Alternate Bold" size="24.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="165.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="minutes" />
+
+        <Button
+                fx:id="btn_continue"
+                layoutX="243.0"
+                layoutY="420.0"
+                mnemonicParsing="false"
+                onAction="#buttonTapped"
+                prefHeight="29.0"
+                prefWidth="166.0"
+                text="Got it"
+        />
+      <Label layoutX="48.0" layoutY="174.0" text="30" textFill="WHITE">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="43.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="next Drink">
+         <font>
+            <Font name="DIN Alternate Bold" size="56.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="205.0" fitWidth="187.0" layoutX="427.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../aqua_drink_glass_h2o_water-512.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="AmountThisTime" layoutX="471.0" layoutY="269.0" text="500ml" textFill="WHITE" />
+    </children>
+</AnchorPane>
