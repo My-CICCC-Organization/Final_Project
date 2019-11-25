@@ -25,23 +25,30 @@ public class Record<recordList> {
         this.takenQuantity = takenQuantity;
         this.requiredQuantity = requiredQuantity;
         this.Time = time;
+
     }
 
     Record myRecord = new Record
             (0010, "Tae", 19870831,50,1000,2500,30);
 
 
+    public void storeAllRecord() {
+        for (int i = 0; i < myRecord.size(); i++) {
+            String result =
+                    "<UUID> " + myRecord.get(i).getUUID() +
+                    "<name> " + myRecord.get(i).getName() +
+                    "<Birthday> " + myRecord.get(i).getBirthday() +
+                    "<weight> " + myRecord.get(i).getWeight() +
+                    "<takenQuantity> " + myRecord.get(i).getRequiredQuantity +
+                    "<requiredQuantity> " +myRecord.get(i).getRequiredQuantty +
 
-//    public void listAllRecord() {
-//        for (int i = 0; i < myRecord.size(); i++) {
-//            String result = "<UUID> " + myRecord.get(i).getUUID() + "name " + myRecord.get(i).getName()+
-//           "Birthday" + myRecord.get(i).getBirthday()+", home=" + myRecord.get(i).getHomeNumber()+
-//            if (!myRecord.get(i).getCityName().isEmpty()) result += (", city=" + myRecord.get(i).getCityName());
-//            result = result + ')';
-//
-//            System.out.println(result);
-//        }
-//    }
+
+
+
+
+            System.out.println(result);
+        }
+    }
 
     private int size() {
         return size();
