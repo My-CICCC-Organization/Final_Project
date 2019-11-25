@@ -32,16 +32,16 @@ public class Record<recordList> {
 
 
 
-    public void listAllRecord() {
-        for (int i = 0; i < myRecord.size(); i++) {
-            String result = "<UUID> " + myRecord.get(i).getUUID() + "name " + myRecord.get(i).getName()+
-           "Birthday" + myRecord.get(i).getBirthday()+", home=" + myRecord.get(i).getHomeNumber()+
-            if (!myRecord.get(i).getCityName().isEmpty()) result += (", city=" + myRecord.get(i).getCityName());
-            result = result + ')';
-
-            System.out.println(result);
-        }
-    }
+//    public void listAllRecord() {
+//        for (int i = 0; i < myRecord.size(); i++) {
+//            String result = "<UUID> " + myRecord.get(i).getUUID() + "name " + myRecord.get(i).getName()+
+//           "Birthday" + myRecord.get(i).getBirthday()+", home=" + myRecord.get(i).getHomeNumber()+
+//            if (!myRecord.get(i).getCityName().isEmpty()) result += (", city=" + myRecord.get(i).getCityName());
+//            result = result + ')';
+//
+//            System.out.println(result);
+//        }
+//    }
 
     private int size() {
         return size();
