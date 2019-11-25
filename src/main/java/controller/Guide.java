@@ -1,18 +1,30 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import util.Constants;
 import util.StageManager;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class Guide {
-    public void buttonTapped(ActionEvent actionEvent) throws Exception {
-        /**
-         * Open Setup
-        */
-        StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.SETUP_SCENE);
+
+    private String setupIs;
+    public void initialize() throws IOException {
+        String FileName = "memo";
+        BufferedReader br = null;
+        br = new BufferedReader(new FileReader(FileName));
+        setupIs = br.readLine();
+    }
+
+    public void buttonTapped(ActionEvent actionEvent){
+
+        if (setupIs != null) {
+            StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
+        } else{
+            StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.SETUP_SCENE);
+        }
     }
 }
