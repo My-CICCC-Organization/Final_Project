@@ -32,32 +32,23 @@ public class MainScene {
 
     private Setup a = new Setup();
 
+
     public void initialize() throws IOException {
-        String FileName = "memo";
-        BufferedReader br = null;
-        br = new BufferedReader(new FileReader(FileName));
-        br.readLine();
-        String name = br.readLine();
-        br.readLine();
-        br.readLine();
-        br.readLine();
-        br.readLine();
-        String quantity = br.readLine();
-        AmountThisTime.setText(quantity + " ml");
+        Record record = Record.read();
+        AmountThisTime.setText(record.getMl() + " ml");
 
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             minute = LocalDateTime.now().getMinute();
             hour = LocalDateTime.now().getHour();
             seconds = LocalDateTime.now().getSecond();
-
-            if(hour > 7 && hour < 12){
-                lb_good.setText("Good Morning, " + name);
+            if (hour > 7 && hour < 12){
+                lb_good.setText("Good Morning, " + record.getName());
             }
             if(hour >= 12 && hour < 18){
-                lb_good.setText("Good Day, "+ name);
+                lb_good.setText("Good Day, "+ record.getName());
             }
             if(hour >= 18 && hour < 24){
-                lb_good.setText("Good Night, "+ name);
+                lb_good.setText("Good Night, "+ record.getName());
             }
 
         }),

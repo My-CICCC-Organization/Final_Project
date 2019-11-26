@@ -16,16 +16,18 @@ import java.io.*;
 
  public class Setup {
 
-     public int dd =  0;
-     public int mm = 0;
-     public int yyyy = 0;
-     public int kg = 0;
-     public int ml = 0;
+     public String dd;
      public String name;
+     public String mm;
+     public String yyyy;
+     public String kg;
+     public String ml;
+     public String unit;
 
 
 
      ObservableList<String> units = FXCollections.observableArrayList("Kg","Lb");
+
 
 
      @FXML
@@ -76,36 +78,25 @@ import java.io.*;
         }
 
         // Converting the input into local variables
-        dd =Integer.parseInt(in_dd.getText());
-        mm =Integer.parseInt(in_mm.getText());
-        yyyy = Integer.parseInt(in_yy.getText());
+        dd = in_dd.getText();
+        mm = in_mm.getText();
+        yyyy = in_yy.getText();
         name = in_name.getText();
-        kg =Integer.parseInt(in_kg.getText());
-        ml =Integer.parseInt(in_ml.getText());
-        String unit = choise_units.getValue();
+        kg = in_kg.getText();
+        ml = in_ml.getText();
+        unit = choise_units.getValue();
+
+        Record.store(name);
+        Record.store(dd);
+        Record.store(mm);
+        Record.store(yyyy);
+        Record.store(kg);
+        Record.store(ml);
+        Record.store(unit);
+
+        StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
 
 
-        // Typing data into memo.txt
-        try (FileWriter fw = new FileWriter("memo", true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)){
-            out.println("SetupDone");
-            out.println(name);
-            out.println(dd);
-            out.println(mm);
-            out.println(yyyy);
-            out.println(kg);
-            out.println(ml);
-
-            System.out.println("*Data Saved in memo.txt");
-            bw.close();
-            out.close();
-            StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
-
-
-        } catch (IOException e) {
-            System.out.println("Some Problems bro!");
-        }
 
     }
 }
