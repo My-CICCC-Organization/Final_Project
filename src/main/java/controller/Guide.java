@@ -13,7 +13,7 @@ public class Guide {
 
     private String setupIs;
     public void initialize() throws IOException {
-        String FileName = "memo";
+        String FileName = "PersonalInfo";
         BufferedReader br = null;
         br = new BufferedReader(new FileReader(FileName));
         setupIs = br.readLine();

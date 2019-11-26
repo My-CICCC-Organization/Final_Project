@@ -4,112 +4,76 @@ import util.Constants;
 import util.StageManager;
 
 import java.io.*;
+import java.util.*;
 
 public class Record {
 
-    private String name ;
-    private String day ;
-    private String month ;
-    private String year ;
-    private String weight ;
-    private String ml ;
-    private String unit ;
-
-    public Record(String name, String day, String month, String year, String weight, String ml, String unit) {
-        this.name = name;
-        this.day = day;
-        this.month = month;
-        this.year = year;
-        this.weight = weight;
-        this.ml = ml;
-        this.unit = unit;
+    public static void write(String FileName, String info) {
+        try (FileWriter fw = new FileWriter(FileName, true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+             bw.close();
+             out.close();
+             StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
+        } catch (IOException e) {
+            System.out.println("There are some problems");
+        }
     }
 
-    public static void store(String info){
-        try (FileWriter fw = new FileWriter("memo", true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)){
-             out.println(info);
+    public static String read(String FileName) {
+        try {
+            BufferedReader br = null;
+            br = new BufferedReader(new FileReader(FileName));
+            String info = br.readLine();
+            return info;
+        } catch (IOException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 
-            System.out.println("*Data Saved in memo.txt");
-            bw.close();
-            out.close();
-            StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
+    public static Map readPersonalFileAsMap(String name) {
+        try {
+            String FileName = Constants.PERSONAL_INFO;
+            BufferedReader br = null;
+            br = new BufferedReader(new FileReader(FileName));
+            String infoString = br.readLine();
+            List<String> infoList = Arrays.asList(infoString.split(","));
+            Map<String, String> infoMap = new HashMap<>();
+            infoMap.put(Constants.UUID, infoList.get(0));
+            infoMap.put(Constants.NAME, infoList.get(1));
+            infoMap.put(Constants.BIRTHDAY, infoList.get(2));
+            infoMap.put(Constants.WEIGHT, infoList.get(3));
+            infoMap.put(Constants.STATUS, infoList.get(4));
 
+            return infoMap;
 
         } catch (IOException e) {
-            System.out.println("Some Problems bro!");
+            System.out.println(e);
+            return null;
         }
-
     }
 
-    public static Record read() throws IOException {
-        String FileName = "memo";
-        BufferedReader br = null;
-        br = new BufferedReader(new FileReader(FileName));
-        String name = br.readLine();
-        String day =br.readLine();
-        String month =br.readLine();
-        String year =br.readLine();
-        String weight =br.readLine();
-        String ml =br.readLine();
-        String unit =br.readLine();
-        return new Record(name, day, month, year, weight, ml, unit);
-    }
+    public static Map readRecodeFileAsMap() {
+        try {
+            String FileName = Constants.RECORD;
+            BufferedReader br = null;
+            br = new BufferedReader(new FileReader(FileName));
+            String infoString = br.readLine();
+            List<String> infoList = Arrays.asList(infoString.split(","));
+            Map<String, String> infoMap = new HashMap<>();
+            infoMap.put(Constants.UUID, infoList.get(0));
+            infoMap.put(Constants.WATER, infoList.get(1));
+            infoMap.put(Constants.QUANTITY, infoList.get(2));
+            infoMap.put(Constants.INDOOR_ACTIVITY, infoList.get(3));
+            infoMap.put(Constants.OUTDOOR_ACTIVITY, infoList.get(4));
+            infoMap.put(Constants.TAKEN_QUANTITY, infoList.get(5));
+            infoMap.put(Constants.TIME, infoList.get(6));
+            return infoMap;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    public String getMl() {
-        return ml;
-    }
-
-    public void setMl(String ml) {
-        this.ml = ml;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
+        } catch (IOException e) {
+            System.out.println(e);
+            return null;
+        }
     }
 }

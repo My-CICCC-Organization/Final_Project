@@ -86,13 +86,13 @@ import java.io.*;
         ml = in_ml.getText();
         unit = choise_units.getValue();
 
-        Record.store(name);
-        Record.store(dd);
-        Record.store(mm);
-        Record.store(yyyy);
-        Record.store(kg);
-        Record.store(ml);
-        Record.store(unit);
+        Record.readPersonalFileAsMap(name);
+        Record.readPersonalFileAsMap(dd);
+        Record.readPersonalFileAsMap(mm);
+        Record.readPersonalFileAsMap(yyyy);
+        Record.readPersonalFileAsMap(kg);
+        Record.readPersonalFileAsMap(ml);
+        Record.readPersonalFileAsMap(unit);
 
         StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
 
