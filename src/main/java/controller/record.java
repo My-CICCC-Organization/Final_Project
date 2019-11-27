@@ -32,7 +32,7 @@ public class Record {
         }
     }
 
-    public static Map readPersonalFileAsMap() {
+    public static Map<String, String> readPersonalFileAsMap() {
         String infoString = read(Constants.PERSONAL_INFO);;
         List<String> infoList = Arrays.asList(infoString.split(","));
         Map<String, String> infoMap = new HashMap<>();
@@ -44,7 +44,7 @@ public class Record {
         return infoMap;
     }
 
-    public static Map readRecodeFileAsMap() throws IOException {
+    public static Map<String, String> readRecodeFileAsMap() {
         String infoString = read(Constants.RECORD);
         List<String> infoList = Arrays.asList(infoString.split(","));
         Map<String, String> infoMap = new HashMap<>();
