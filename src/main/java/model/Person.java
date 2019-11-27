@@ -15,8 +15,26 @@ public class Person {
     // UUID, Name, Birthday, Weight(kg), Status
     public void setInformation(List personalInfo){
         String personInfo = String.join(",", personalInfo);
-        // recordメソッド呼び出し　書き込み
+        // call record method and write personal information
         Record.write(Constants.FILENAME_PERSON, personInfo);
+    }
+
+    // set status
+    public int setStatus(){
+        // get totalQuantity
+        int total = Integer.parseInt(Record.readRecodeFileAsMap().get(Constants.WATER));
+        // get Taken Quantity
+        int taken = getTakenQuantity();
+        // get Percentage
+        double percentage = ((double)taken /(double) total) * 100;
+        // check user's status and return it
+        if (percentage >= 70){
+            return Constants.STATUS_HIGH;
+        } else if (percentage >= 50 && percentage < 70){
+            return Constants.STATUS_MIDDLE;
+        } else{
+            return Constants.STATUS_LOW;
+        }
     }
 
     // get user's UUID

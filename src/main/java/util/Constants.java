@@ -28,4 +28,9 @@ public class Constants {
     public static final double CONVERT_SIZE = 0.033814;
     public static final double CONVERT_WEIGHT = 0.45;
 
+    // for status
+    public static final int STATUS_LOW = 1;
+    public static final int STATUS_MIDDLE = 2;
+    public static final int STATUS_HIGH = 3;
+
 }
