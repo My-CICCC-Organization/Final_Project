@@ -32,48 +32,34 @@ public class Record {
         }
     }
 
-    public static Map readPersonalFileAsMap(String name) {
-        try {
-            String FileName = Constants.PERSONAL_INFO;
-            BufferedReader br = null;
-            br = new BufferedReader(new FileReader(FileName));
-            String infoString = br.readLine();
-            List<String> infoList = Arrays.asList(infoString.split(","));
-            Map<String, String> infoMap = new HashMap<>();
-            infoMap.put(Constants.UUID, infoList.get(0));
-            infoMap.put(Constants.NAME, infoList.get(1));
-            infoMap.put(Constants.BIRTHDAY, infoList.get(2));
-            infoMap.put(Constants.WEIGHT, infoList.get(3));
-            infoMap.put(Constants.STATUS, infoList.get(4));
+    public static Map readPersonalFileAsMap() {
 
-            return infoMap;
+        String infoString = read(Constants.PERSONAL_INFO);;
+        List<String> infoList = Arrays.asList(infoString.split(","));
+        Map<String, String> infoMap = new HashMap<>();
+        infoMap.put(Constants.UUID, infoList.get(0));
+        infoMap.put(Constants.NAME, infoList.get(1));
+        infoMap.put(Constants.BIRTHDAY, infoList.get(2));
+        infoMap.put(Constants.WEIGHT, infoList.get(3));
+        infoMap.put(Constants.STATUS, infoList.get(4));
+        return infoMap;
 
-        } catch (IOException e) {
-            System.out.println(e);
-            return null;
+    }
+
+    public static Map readRecodeFileAsMap() throws IOException {
+
+        String infoString = read(Constants.RECORD);
+        List<String> infoList = Arrays.asList(infoString.split(","));
+        Map<String, String> infoMap = new HashMap<>();
+        infoMap.put(Constants.UUID, infoList.get(0));
+        infoMap.put(Constants.WATER, infoList.get(1));
+        infoMap.put(Constants.QUANTITY, infoList.get(2));
+        infoMap.put(Constants.INDOOR_ACTIVITY, infoList.get(3));
+        infoMap.put(Constants.OUTDOOR_ACTIVITY, infoList.get(4));
+        infoMap.put(Constants.TAKEN_QUANTITY, infoList.get(5));
+        infoMap.put(Constants.TIME, infoList.get(6));
+        return infoMap;
+
         }
     }
 
-    public static Map readRecodeFileAsMap() {
-        try {
-            String FileName = Constants.RECORD;
-            BufferedReader br = null;
-            br = new BufferedReader(new FileReader(FileName));
-            String infoString = br.readLine();
-            List<String> infoList = Arrays.asList(infoString.split(","));
-            Map<String, String> infoMap = new HashMap<>();
-            infoMap.put(Constants.UUID, infoList.get(0));
-            infoMap.put(Constants.WATER, infoList.get(1));
-            infoMap.put(Constants.QUANTITY, infoList.get(2));
-            infoMap.put(Constants.INDOOR_ACTIVITY, infoList.get(3));
-            infoMap.put(Constants.OUTDOOR_ACTIVITY, infoList.get(4));
-            infoMap.put(Constants.TAKEN_QUANTITY, infoList.get(5));
-            infoMap.put(Constants.TIME, infoList.get(6));
-            return infoMap;
-
-        } catch (IOException e) {
-            System.out.println(e);
-            return null;
-        }
-    }
-}
