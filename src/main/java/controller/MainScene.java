@@ -5,66 +5,55 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import model.Person;
 import util.Constants;
 import util.StageManager;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
-public class MainScene {
+public class MainScene implements Initializable {
+
     @FXML
-    public Label AmountThisTime;
+    private Label nextDrinkTimer;
     @FXML
-    public Label lb_time;
+    private Label amountThisTime;
     @FXML
-    public Text lb_good;
+    private Label lb_time;
+    @FXML
+    private Text lb_good;
 
-    private int minute;
-    private int hour;
-    private int seconds;
-
-
-
-    private Setup a = new Setup();
-
-
-    public void initialize() throws IOException {
-        Record record = Record.read();
-        AmountThisTime.setText(record.getMl() + " ml");
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            minute = LocalDateTime.now().getMinute();
-            hour = LocalDateTime.now().getHour();
-            seconds = LocalDateTime.now().getSecond();
+            int hour = LocalDateTime.now().getHour();
             if (hour > 7 && hour < 12){
-                lb_good.setText("Good Morning, " + record.getName());
+                lb_good.setText("Good Morning, " + Person.getName());
             }
             if(hour >= 12 && hour < 18){
-                lb_good.setText("Good Day, "+ record.getName());
+                lb_good.setText("Good Day, "+ Person.getName());
             }
             if(hour >= 18 && hour < 24){
-                lb_good.setText("Good Night, "+ record.getName());
+                lb_good.setText("Good Night, "+ Person.getName());
             }
-
         }),
                 new KeyFrame(Duration.seconds(1))
         );
-
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
 
-
-
+        Calculate calculate = new Calculate();
+        nextDrinkTimer.setText(String.valueOf(calculate.getNextDrinkTimer()));
+        amountThisTime.setText(calculate.getWaterQuantity() + " ml");
+        StageManager.showLater(Constants.NOTIFICATION_STAGE,Constants.NOTIFICATION_SCENE, calculate.getNextDrinkTimer());
     }
 
-
-
-    public void buttonTapped(ActionEvent actionEvent) throws Exception {
+    public void buttonTapped(ActionEvent actionEvent) {
         /**
          *  minimizeStage
          */
