@@ -1,7 +1,7 @@
 package util;
 
 public class Constants {
-    public static String PRIMARY_STAGE = "primary";
+    public static final String PRIMARY_STAGE = "primary";
     public static final String GUIDE_SCENE = "guide";
     public static final String SETUP_SCENE = "setup";
     public static final String MAIN_SCENE = "mainScene";
@@ -22,5 +22,10 @@ public class Constants {
     public static final String OUTDOOR_ACTIVITY = "outdoorActivity";
     public static final String TAKEN_QUANTITY = "takenQuantity";
     public static final String TIME = "time";
+    public static final String FILENAME_PERSON = "person.txt";
+
+    // for convert unit
+    public static final double CONVERT_SIZE = 0.033814;
+    public static final double CONVERT_WEIGHT = 0.45;
 
 }
