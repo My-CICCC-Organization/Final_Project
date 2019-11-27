@@ -1,26 +1,24 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import util.Constants;
 import util.StageManager;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Guide {
+public class Guide implements Initializable {
 
     private String setupIs;
-    public void initialize() throws IOException {
-        String FileName = "PersonalInfo";
-        BufferedReader br = null;
-        br = new BufferedReader(new FileReader(FileName));
-        setupIs = br.readLine();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setupIs = Record.read(Constants.PERSONAL_INFO);
     }
 
     public void buttonTapped(ActionEvent actionEvent){
-
         if (setupIs != null) {
             StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
         } else{
