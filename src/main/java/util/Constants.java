@@ -32,5 +32,5 @@ public class Constants {
     public static final int STATUS_LOW = 1;
     public static final int STATUS_MIDDLE = 2;
     public static final int STATUS_HIGH = 3;
-
+    public static final String BOTTLE_SIZE = "BottleSize";
 }
