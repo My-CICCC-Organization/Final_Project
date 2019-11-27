@@ -7,11 +7,14 @@ import javafx.scene.control.Label;
 
 import util.Constants;
 import util.StageManager;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class notification implements Initializable {
+    public class notification  {
+
+
     @FXML
     private Label AmountThisTime;
 
@@ -21,9 +24,20 @@ public class notification implements Initializable {
     @FXML
     private Button goToInPut;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        AmountThisTime.setText("1000ml");
+
+    public void initialize() throws IOException {
+
+            String FileName = "memo";
+            BufferedReader br = null;
+            br = new BufferedReader(new FileReader(FileName));
+            br.readLine();
+            String name = br.readLine();
+            br.readLine();
+            br.readLine();
+            br.readLine();
+            br.readLine();
+            String quantity = br.readLine();
+            AmountThisTime.setText(quantity + " ml");
     }
 
     public void snooze() {
@@ -40,4 +54,6 @@ public class notification implements Initializable {
         StageManager.changeScene(Constants.PRIMARY_STAGE,Constants.INPUT_SCENE);
         StageManager.closeStage(Constants.NOTIFICATION_STAGE);
     }
+
+
 }
