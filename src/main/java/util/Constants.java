@@ -32,4 +32,13 @@ public class Constants {
     public static final int STATUS_MIDDLE = 2;
     public static final int STATUS_HIGH = 3;
     public static final String BOTTLE_SIZE = "BottleSize";
+
+    // for water calculate
+    public static final int AGE_17 = 50;
+    public static final int AGE18_24 = 45;
+    public static final int AGE25_54 = 40;
+    public static final int AGE55_64 = 35;
+    public static final int AGE65_ = 30;
+    public static final String NEXT_DRINK_TIME = "nextDrinkTime";
+    public static final String NEXT_WATER_QUANTITY= "nextWaterQuantity";
 }
