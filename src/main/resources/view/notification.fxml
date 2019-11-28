@@ -25,27 +25,9 @@
             <Image url="@../aqua_drink_glass_h2o_water-512.png" />
          </image>
       </ImageView>
-      <Button
-              fx:id="snooze"
-              layoutX="31.0"
-              layoutY="113.0"
-              mnemonicParsing="false"
-              onAction="#snooze"
-              prefHeight="33.0"
-              prefWidth="119.0"
-              text="Do not Bother Me"
-      />
-      <Button
-              fx:id="goToInPut"
-              layoutX="160.0"
-              layoutY="113.0"
-              mnemonicParsing="false"
-              onAction="#goToInPut"
-              prefHeight="33.0"
-              prefWidth="119.0"
-              text="Ok, Get it."
-      />
-      <Label fx:id="AmountThisTime" layoutX="366.0" layoutY="105.0"  textFill="WHITE" />
+      <Button fx:id="snooze" layoutX="31.0" layoutY="113.0" mnemonicParsing="false" onAction="#snooze" prefHeight="33.0" prefWidth="119.0" text="Do not Bother Me" />
+      <Button fx:id="goToInPut" layoutX="160.0" layoutY="113.0" mnemonicParsing="false" onAction="#goToInPut" prefHeight="33.0" prefWidth="119.0" text="Drink now." />
+      <Label fx:id="AmountThisTime" layoutX="366.0" layoutY="105.0" textFill="WHITE" />
       <Text fill="#00bceb" layoutX="58.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time to">
          <font>
             <Font size="24.0" />

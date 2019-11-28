@@ -13,7 +13,7 @@ public class Person {
 
     // set personal information
     // UUID, Name, Birthday, Weight(kg), Status
-    public void setInformation(List personalInfo){
+    public static void setInformation(List personalInfo){
         String personInfo = String.join(",", personalInfo);
         // call record method and write personal information
         Record.write(Constants.FILENAME_PERSON, personInfo);

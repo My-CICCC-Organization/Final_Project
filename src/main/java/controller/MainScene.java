@@ -15,6 +15,7 @@ import util.StageManager;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainScene implements Initializable {
@@ -47,10 +48,17 @@ public class MainScene implements Initializable {
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
 
-        Calculate calculate = new Calculate();
-        nextDrinkTimer.setText(String.valueOf(calculate.getNextDrinkTimer()));
-        amountThisTime.setText(calculate.getWaterQuantity() + " ml");
-        StageManager.showLater(Constants.NOTIFICATION_STAGE,Constants.NOTIFICATION_SCENE, calculate.getNextDrinkTimer());
+        Map<String, String> remindInfo = Calculate.calculate();
+        nextDrinkTimer.setText(String.valueOf(remindInfo.get(Constants.NEXT_DRINK_TIME)));
+        amountThisTime.setText(remindInfo.get(Constants.NEXT_WATER_QUANTITY) + " ml");
+    }
+
+    public void goToSetting(ActionEvent actionEvent) {
+        StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.SETUP_SCENE);
+    }
+
+    public void goToInput(ActionEvent actionEvent) {
+        StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.INPUT_SCENE);
     }
 
     public void buttonTapped(ActionEvent actionEvent) {
