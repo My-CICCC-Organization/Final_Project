@@ -6,16 +6,28 @@ import java.util.*;
 
 public class Record {
 
-    public static void write(String FileName, String info) {
+    public static void overWriteInfo(String FileName, String info, boolean append) {
         try {
             File file = new File(FileName);
-            FileWriter fileWriter = new FileWriter(file +".txt");
+            FileWriter fileWriter = new FileWriter(file +".txt",false);
             fileWriter.write(info);
             fileWriter.close();
         } catch (IOException e) {
             System.out.println(e);
         }
     }
+    public static void appendInfo(String FileName, String info, boolean append) {
+        try {
+            File file = new File(FileName);
+            FileWriter fileWriter = new FileWriter(file +".txt",true);
+            fileWriter.write(info);
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    
 
     public static String read(String FileName) {
         try {
