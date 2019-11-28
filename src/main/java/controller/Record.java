@@ -20,7 +20,7 @@ public class Record {
     public static String read(String FileName) {
         try {
             BufferedReader br = null;
-            br = new BufferedReader(new FileReader(FileName));
+            br = new BufferedReader(new FileReader(FileName+ ".txt") );
             String info = br.readLine();
             return info;
         } catch (IOException e) {
@@ -30,14 +30,15 @@ public class Record {
     }
 
     public static Map<String, String> readPersonalFileAsMap() {
-        String infoString = read(Constants.FILENAME_PERSON);;
+        String infoString = read(Constants.FILENAME_PERSON);
         List<String> infoList = Arrays.asList(infoString.split(","));
         Map<String, String> infoMap = new HashMap<>();
         infoMap.put(Constants.UUID, infoList.get(0));
         infoMap.put(Constants.NAME, infoList.get(1));
         infoMap.put(Constants.BIRTHDAY, infoList.get(2));
         infoMap.put(Constants.WEIGHT, infoList.get(3));
-        infoMap.put(Constants.STATUS, infoList.get(4));
+        infoMap.put(Constants.BOTTLE_SIZE, infoList.get(4));
+        infoMap.put(Constants.STATUS, infoList.get(5));
         return infoMap;
     }
 

@@ -12,9 +12,17 @@ import util.Constants;
 public class Person {
 
     // set personal information
-    // UUID, Name, Birthday, Weight(kg), Status
+    // UUID, Name, Birthday, Weight(kg), bottle of size(ml), Status
     public static void setInformation(List personalInfo){
-        String personInfo = String.join(",", personalInfo);
+        String personInfo;
+        // null check
+        if (Record.read(Constants.FILENAME_PERSON) == null){
+            // if it is first time to write information
+            personInfo =  createUUID() + String.join(",", personalInfo);
+        } else {
+            // overwrite
+            personInfo =  getUUID() + String.join(",", personalInfo);
+        }
         // call record method and write personal information
         Record.write(Constants.FILENAME_PERSON, personInfo);
     }
@@ -37,10 +45,15 @@ public class Person {
         }
     }
 
-    // get user's UUID
-    public static String getUUID() {
+    // set user's UUID
+    public static String createUUID() {
         UUID uuid = UUID.randomUUID();
         return  uuid.toString();
+    }
+
+    // get user's UUID
+    public static String getUUID() {
+        return Record.readPersonalFileAsMap().get(Constants.UUID);
     }
 
     // get user's name
@@ -64,6 +77,9 @@ public class Person {
 
     // get user's Taken Quantity(ml)
     public static int getTakenQuantity() {
+        if (Record.read(Constants.FILENAME_RECORD) == null){
+            return 0;
+        }
         return Integer.parseInt(Record.readPersonalFileAsMap().get(Constants.TAKEN_QUANTITY));
     }
 
