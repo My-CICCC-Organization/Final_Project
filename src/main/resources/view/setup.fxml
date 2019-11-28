@@ -9,8 +9,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<<<<<<< Updated upstream
-=======
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Setup">
 
     <ImageView fitHeight="600.0" fitWidth="800.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
@@ -46,18 +44,11 @@
 
     <TextField fx:id="in_weight" layoutX="244.0" layoutY="370.0" prefHeight="27.0" prefWidth="107.0" promptText="#" />
 
-    <Button fx:id="btn_continue" layoutX="427.0" layoutY="442.0" mnemonicParsing="false" onAction="#click_btn_continue" prefHeight="29.0" prefWidth="230.0" text="Continue " />
->>>>>>> Stashed changes
+    <Button fx:id="btn_continue" layoutX="410.0" layoutY="450.0" mnemonicParsing="false" onAction="#click_btn_continue" prefHeight="29.0" prefWidth="230.0" text="Continue " />
 
-<<<<<<< Updated upstream
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Setup">
-=======
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="controller.Input">
->>>>>>> Stashed changes
-    <children>
         <ImageView fitHeight="530.0" fitWidth="707.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../Screenshot 2019-11-21 21.55.07.png" />
+                <Image url="@../black_background.png" />
             </image>
         </ImageView>
         <Text fill="#00bceb" layoutX="235.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="iSede">
@@ -75,95 +66,35 @@
                 <Font name="DIN Alternate Bold" size="56.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="48.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+        <Text fill="WHITE" layoutX="219.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
             <font>
                 <Font name="DIN Alternate Bold" size="56.0" />
             </font>
         </Text>
-        <Pane fx:id="targetPane" prefHeight="283.0" prefWidth="343.0" BorderPane.alignment="CENTER" />
-        <TextField
-                fx:id="day"
-                layoutX="48.0"
-                layoutY="237.0"
-                prefHeight="27.0"
-                prefWidth="90.0" />
-        <TextField
-                fx:id="month"
-                layoutX="149.0"
-                layoutY="237.0"
-                prefHeight="27.0"
-                prefWidth="90.0" />
-        <TextField
-                fx:id="year"
-                layoutX="250.0"
-                layoutY="237.0"
-                prefHeight="27.0"
-                prefWidth="90.0" />
-        <TextField
-                fx:id="weight"
-                layoutX="48.0"
-                layoutY="375.0"
-                prefHeight="27.0"
-                prefWidth="90.0" />
+        <TextField fx:id="in_dd" layoutX="48.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="dd" />
+        <TextField fx:id="in_mm" layoutX="149.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="mm" />
+        <TextField fx:id="in_yy" layoutX="250.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="yyyy" />
+        <TextField fx:id="in_weight" layoutX="221.0" layoutY="370.0" prefHeight="27.0" prefWidth="103.0" promptText="#" />
         <Text fill="WHITE" layoutX="86.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd" />
         <Text fill="WHITE" layoutX="187.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm" />
         <Text fill="WHITE" layoutX="289.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yy" />
-        <Text fill="WHITE" layoutX="143.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kg" />
 
-        <Button
-                text="Continue "
-                fx:id="btn_continue"
-                layoutX="235.0"
-                layoutY="450.0"
-                mnemonicParsing="false"
-                prefHeight="29.0"
-                prefWidth="230.0"
-<<<<<<< Updated upstream
-                onAction="#buttonTapped"
-=======
-                onAction="#initialSetting"
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-               />
-        <ImageView fitHeight="205.0"
-                   fitWidth="187.0"
-                   layoutX="474.0"
-                   layoutY="135.0"
-                   pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="205.0" fitWidth="187.0" layoutX="474.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../aqua_drink_glass_h2o_water-512.png" />
             </image>
         </ImageView>
-        <TextField
-                fx:id="cup"
-                layoutX="510.0"
-                layoutY="356.0"
-                prefHeight="27.0"
-                prefWidth="90.0" />
-        <Text
-                fill="WHITE"
-                layoutX="605.0"
-                layoutY="374.0"
-                strokeType="OUTSIDE"
-                strokeWidth="0.0"
-                text="ml" />
-    </children>
-=======
-    <TextField fx:id="in_size" layoutX="510.0" layoutY="356.0" prefHeight="27.0" prefWidth="90.0" promptText="#" />
->>>>>>> Stashed changes
 
+    <TextField fx:id="in_size" layoutX="488.0" layoutY="356.0" prefHeight="27.0" prefWidth="90.0" promptText="#" />
 
-
-<<<<<<< Updated upstream
-=======
-    <ChoiceBox fx:id="chooseWeightUnit" layoutX="359.0" layoutY="370.0" prefHeight="27.0" prefWidth="40.0" />
-   <Text fill="WHITE" layoutX="48.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+    <ChoiceBox fx:id="chooseWeightUnit" layoutX="331.0" layoutY="370.0" prefHeight="27.0" prefWidth="40.0" />
+   <Text fill="WHITE" layoutX="32.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
       <font>
          <Font name="DIN Alternate Bold" size="56.0" />
       </font>
    </Text>
-   <TextField fx:id="in_name" layoutX="51.0" layoutY="370.0" prefHeight="27.0" prefWidth="142.0" promptText="First Name" />
->>>>>>> Stashed changes
+   <TextField fx:id="in_name" layoutX="33.0" layoutY="370.0" prefHeight="27.0" prefWidth="142.0" promptText="First Name" />
+   <ChoiceBox fx:id="chooseQuantityUnit" layoutX="586.0" layoutY="356.0" prefHeight="27.0" prefWidth="40.0" />
+   <Text fx:id="lb_error" fill="RED" layoutX="48.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="253.22900390625" />
 </AnchorPane>

@@ -10,9 +10,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import model.Bottle;
 import model.Person;
 import util.Constants;
 import util.StageManager;
+import util.Tools;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,9 +23,15 @@ import java.util.ResourceBundle;
 
 public class Setup implements Initializable {
 
-     private ObservableList<String> weightUnit = FXCollections.observableArrayList("Kg","Lb");
+    Bottle b = new Bottle();
+    Person p = new Person();
+    Tools tools = new Tools();
 
-     @FXML
+    private ObservableList<String> weightUnit = FXCollections.observableArrayList("Kg","Lb");
+    private ObservableList<String> quantityUnit = FXCollections.observableArrayList("ml","oz");
+
+
+    @FXML
      private TextField in_dd;
 
      @FXML
@@ -39,7 +47,7 @@ public class Setup implements Initializable {
      private TextField in_weight;
 
      @FXML
-     private Button btn_continue;
+     public Button btn_continue;
 
      @FXML
      private TextField in_size;
@@ -49,17 +57,20 @@ public class Setup implements Initializable {
 
      @FXML
      public ChoiceBox<String> chooseWeightUnit;
+     @FXML
+     public ChoiceBox<String> chooseQuantityUnit;
 
      @Override
      public void initialize(URL location, ResourceBundle resources) {
         chooseWeightUnit.setValue("Kg");
         chooseWeightUnit.setItems(weightUnit);
+        chooseQuantityUnit.setValue("ml");
+         chooseQuantityUnit.setItems(quantityUnit);
     }
 
     public void click_btn_continue(ActionEvent actionEvent) {
         Button btn_continue = (Button) actionEvent.getSource();
         System.out.println(btn_continue.getId() + " CLicked ");
-
 
         // checking if the fields are not empty
         if(in_dd.getText().equals("") || in_mm.getText().equals("") || in_yy.getText().equals("") || in_weight.getText().equals("") || in_name.getText().equals("")){
@@ -67,7 +78,7 @@ public class Setup implements Initializable {
             lb_error.setText("You' re missing some fields");
         }else {
             lb_error.setFill(Paint.valueOf("green"));
-            lb_error.setText("   Correct !");
+            lb_error.setText("Correct !");
         }
 
         // Converting the input into local variables
@@ -75,20 +86,24 @@ public class Setup implements Initializable {
         String mm = in_mm.getText();
         String yyyy = in_yy.getText();
         String name = in_name.getText();
-        String weightUnit = chooseWeightUnit.getValue();
-        //TODO
         String weight = in_weight.getText();
-        //TODO
         String size = in_size.getText();
+        String weightUnit = chooseWeightUnit.getValue();
+        String quantityUnit = chooseQuantityUnit.getValue();
+
+        if(weightUnit.equals("Lb")){
+            weight = String.valueOf(Tools.exchangeWeight(weight));
+        }
+        if(quantityUnit.equals("oz")){
+            size = String.valueOf(Tools.exchangeSize(size));
+        }
 
         List<String> personalInfo = new ArrayList<String>();
         personalInfo.add(name);
-        personalInfo.add(yyyy+mm+dd);
+        personalInfo.add(dd + mm + yyyy);
         personalInfo.add(weight);
         Person.setInformation(personalInfo);
-        //TODO
-        // Bottle.setSize(size);
-
+        Bottle.set_Size(size);
         StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
     }
 }

@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 
 import util.Constants;
 import util.StageManager;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,8 +24,7 @@ public class notification implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Calculate calculate = new Calculate();
-        String quantity = calculate.getWaterQuantity();
+        String quantity = Calculate.calculate().get(Constants.NEXT_WATER_QUANTITY);
         AmountThisTime.setText(quantity + " ml");
     }
 
