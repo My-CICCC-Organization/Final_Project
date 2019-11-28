@@ -18,10 +18,10 @@ public class Guide implements Initializable {
     }
 
     public void buttonTapped(ActionEvent actionEvent){
-        if (setupIs != null) {
-            StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
-        } else{
+        if (setupIs == null) {
             StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.SETUP_SCENE);
+        } else{
+            StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
         }
     }
 }

@@ -71,10 +71,10 @@
                 <Font name="DIN Alternate Bold" size="56.0" />
             </font>
         </Text>
-        <TextField fx:id="day" layoutX="48.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="dd" />
-        <TextField fx:id="month" layoutX="149.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="mm" />
-        <TextField fx:id="year" layoutX="250.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="yyyy" />
-        <TextField fx:id="weight" layoutX="221.0" layoutY="370.0" prefHeight="27.0" prefWidth="103.0" promptText="#" />
+        <TextField fx:id="in_dd" layoutX="48.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="dd" />
+        <TextField fx:id="in_mm" layoutX="149.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="mm" />
+        <TextField fx:id="in_yy" layoutX="250.0" layoutY="237.0" prefHeight="27.0" prefWidth="90.0" promptText="yyyy" />
+        <TextField fx:id="in_weight" layoutX="221.0" layoutY="370.0" prefHeight="27.0" prefWidth="103.0" promptText="#" />
         <Text fill="WHITE" layoutX="86.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd" />
         <Text fill="WHITE" layoutX="187.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm" />
         <Text fill="WHITE" layoutX="289.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yy" />

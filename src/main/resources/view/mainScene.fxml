@@ -20,7 +20,7 @@
                 <Font name="Apple Braille Outline 6 Dot" size="90.0" />
             </font>
         </Text>
-        <Text fx:id="lb_good" fill="#9da0a1" layoutX="43.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="286.578125">
+        <Text fx:id="lb_good" fill="#9da0a1" layoutX="43.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0"  wrappingWidth="286.578125">
             <font>
                 <Font name="Lato Hairline" size="30.0" />
             </font>
