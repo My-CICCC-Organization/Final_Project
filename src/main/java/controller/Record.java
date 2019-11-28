@@ -1,22 +1,19 @@
 package controller;
 
 import util.Constants;
-import util.StageManager;
-
 import java.io.*;
 import java.util.*;
 
 public class Record {
 
     public static void write(String FileName, String info) {
-        try (FileWriter fw = new FileWriter(FileName, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-             bw.close();
-             out.close();
-             StageManager.changeScene(Constants.PRIMARY_STAGE, Constants.MAIN_SCENE);
+        try {
+            File file = new File(FileName);
+            FileWriter fileWriter = new FileWriter(file +".txt");
+            fileWriter.write(info);
+            fileWriter.close();
         } catch (IOException e) {
-            System.out.println("There are some problems");
+            System.out.println(e);
         }
     }
 
@@ -33,7 +30,7 @@ public class Record {
     }
 
     public static Map<String, String> readPersonalFileAsMap() {
-        String infoString = read(Constants.PERSONAL_INFO);;
+        String infoString = read(Constants.FILENAME_PERSON);;
         List<String> infoList = Arrays.asList(infoString.split(","));
         Map<String, String> infoMap = new HashMap<>();
         infoMap.put(Constants.UUID, infoList.get(0));
@@ -56,5 +53,5 @@ public class Record {
         infoMap.put(Constants.TAKEN_QUANTITY, infoList.get(5));
         infoMap.put(Constants.TIME, infoList.get(6));
         return infoMap;
-        }
     }
+}
