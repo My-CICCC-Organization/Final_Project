@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import model.Person;
 import util.Constants;
 import util.StageManager;
 import java.net.URL;
@@ -10,11 +11,11 @@ import java.util.ResourceBundle;
 
 public class Guide implements Initializable {
 
-    private String setupIs;
+    private String setupIs = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setupIs = Record.read(Constants.FILENAME_PERSON + ".txt");
+        setupIs = Person.getName();
     }
 
     public void buttonTapped(ActionEvent actionEvent){
