@@ -18,19 +18,19 @@ public class Person {
         // null check
         if (Record.read(Constants.FILENAME_PERSON) == null){
             // if it is first time to write information
-            personInfo =  createUUID() + String.join(",", personalInfo);
+            personInfo =  createUUID() + String.join(Constants.COMMA, personalInfo);
         } else {
             // overwrite
-            personInfo =  getUUID() + String.join(",", personalInfo);
+            personInfo =  getUUID() + String.join(Constants.COMMA, personalInfo);
         }
         // call record method and write personal information
-        Record.write(Constants.FILENAME_PERSON, personInfo);
+        Record.overWriteInfo(Constants.FILENAME_PERSON, personInfo);
     }
 
     // set status
     public int setStatus(){
         // get totalQuantity
-        int total = Integer.parseInt(Record.readRecodeFileAsMap().get(Constants.WATER));
+        int total = Integer.parseInt(Record.readRecodeFileAsMap().get(Constants.WATER_QUANTITY));
         // get Taken Quantity
         int taken = getTakenQuantity();
         // get Percentage
@@ -80,7 +80,7 @@ public class Person {
         if (Record.read(Constants.FILENAME_RECORD) == null){
             return 0;
         }
-        return Integer.parseInt(Record.readPersonalFileAsMap().get(Constants.TAKEN_QUANTITY));
+        return Integer.parseInt(Record.readRecodeFileAsMap().get(Constants.TAKEN_QUANTITY));
     }
 
     // get user's status
